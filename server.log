@@ -1,0 +1,50 @@
+[15:11:42] alt:V Server 12.10 (release)
+[15:11:42] Starting ExXTreMe Test on 192.168.178.65:7788
+[15:11:42] Loading resource bennys
+[15:11:43] Loaded resource bennys
+[15:11:43] Loading resource chat
+[15:11:43] Loaded resource chat
+[15:11:43] Loading resource freeroam
+[15:11:44] Loaded resource freeroam
+[15:11:44] Loading resource glock
+[15:11:44] Loaded resource glock
+[15:11:44] Loading resource gtr2000
+[15:11:44] Loaded resource gtr2000
+[15:11:44] Loading resource gtr2015
+[15:11:44] Loaded resource gtr2015
+[15:11:44] Loading resource jeep
+[15:11:45] Loaded resource jeep
+[15:11:45] Loading resource vehspawnMenu
+[15:11:45] Loaded resource vehspawnMenu
+[15:11:45] Loading resource tuner
+[15:11:45] Loaded resource tuner
+[15:11:45] Required server permissions:
+[15:11:45] Optional server permissions:
+[15:11:45] Starting HTTP server on 192.168.178.65:7788
+[15:11:45] Main thread started (ThreadId: 2756)
+[15:11:45] Colshape thread started (ThreadId: 16536)
+[15:11:45] EntityStreamer thread started (ThreadId: 2940)
+[15:11:45] Sync thread started (ThreadId: 19004)
+[15:11:45] Network thread started (ThreadId: 29652)
+[15:11:45] Console thread started (ThreadId: 7028)
+[15:11:45][Warning] Server started in debug mode
+[15:11:53] Player connected: ExXTreMe
+[15:17:14] Stopping resource vehspawnMenu
+[15:17:14] Stopped resource vehspawnMenu
+[15:17:14] Stopping resource bennys
+[15:17:14] Stopped resource bennys
+[15:17:14] Stopping resource chat
+[15:17:14] Stopping resource freeroam
+[15:17:14] Stopped resource freeroam
+[15:17:14] Stopping resource tuner
+[15:17:14] Stopped resource tuner
+[15:17:14] Stopped resource chat
+[15:17:14] Stopping resource gtr2000
+[15:17:14] Stopped resource gtr2000
+[15:17:14] Stopping resource glock
+[15:17:14] Stopped resource glock
+[15:17:14] Stopping resource gtr2015
+[15:17:14] Stopped resource gtr2015
+[15:17:14] Stopping resource jeep
+[15:17:14] Stopped resource jeep
+[15:17:15] Server shutdown
