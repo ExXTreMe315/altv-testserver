@@ -1,0 +1,12 @@
+announce = false
+debug = true
+description = 'alt:V Sample Server'
+gamemode = 'Freeroam'
+host = '192.168.178.65'
+language = 'en'
+modules = [ 'js-module', 'js-bytecode-module' ]
+name = 'ExXTreMe Test'
+players = 10
+port = 7788
+resources = [ 'bennys', 'chat', 'freeroam', 'glock', 'gtr2000', 'gtr2015', 'jeep', 'vehspawnMenu', 'tuner' ]
+website = 'google.de'
