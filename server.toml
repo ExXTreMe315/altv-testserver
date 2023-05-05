@@ -1,12 +1,15 @@
-announce = false
 debug = true
-description = 'alt:V Sample Server'
+description = 'Testserver'
 gamemode = 'Freeroam'
-host = '192.168.178.65'
-language = 'en'
+host = '0.0.0.0'
+language = 'de'
 modules = [ 'js-module', 'js-bytecode-module' ]
-name = 'ExXTreMe Test'
-players = 10
+name = 'Testserver'
+players = 100
 port = 7788
-resources = [ 'bennys', 'chat', 'freeroam', 'glock', 'gtr2000', 'gtr2015', 'jeep', 'vehspawnMenu', 'tuner' ]
-website = 'google.de'
+resources = [
+    'freeroam',
+    'nativetuner',
+    'charakterEditor'
+]
+website = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'

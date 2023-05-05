@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div id="msg-box">
+        <input id="input" type="text">
+    </div>
+</body>
+</html>
+
+<style>
+    input{
+        height: 40px;
+        width: 500px;
+        background-color: #00000080;
+        border: 1px solid #ffffff80;
+        color: aliceblue;
+        margin-top: 20%;
+    }
+</style>
+
+<script>
+    document.getElementById('input').focus()
+    alt.on('getMsg', () => {
+        alt.emit('sendMsg', document.getElementById('input').value)
+    })
+</script>

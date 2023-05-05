@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" onmousedown="return false" onselectstart="return false">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="speedo">
+            <div class="outer">
+                <div class="text" id="speed">
+                    190 k/mh
+                </div>
+            </div>
+            <div class="outer">
+                <div class="text" id="rpm">
+                    2500 u/min
+                </div>
+            </div>
+            <div class="outer">
+                <div class="text" id="gear">
+                    P
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <script>
+        alt.on('updateSpeed', (speed, rpm, gear, isEngineRunning) => {
+            if (!isEngineRunning) {
+                document.getElementById('speed').innerText = "0 km/h"
+                document.getElementById('rpm').innerText = "0 u/min"
+                document.getElementById('gear').innerText = "P"
+                return
+            }
+            document.getElementById('speed').innerText = `${speed} km/h`
+            document.getElementById('rpm').innerText = `${rpm} u/min`
+            document.getElementById('gear').innerText = gear
+        })
+    </script>
+
+    <style>
+        .speedo{
+            margin-top: 20%;
+        }
+        .outer{
+            margin-left: -16px;
+            margin-bottom: 8px;
+            padding-left: 15px;
+            background-color: grey;
+            width: 150px;
+            height: 30px;
+            border-top: 4px solid red;
+            border-right: 5px solid red;
+            transform: skew(-25deg, 0deg);
+        }
+        .text{
+            margin-top: 3%;
+            margin-left: 3%;
+            transform: skew(25deg, 0deg);
+        }
+    </style>
+</html>
