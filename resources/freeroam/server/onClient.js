@@ -2,7 +2,7 @@
 
 import * as alt from 'alt-server';
 import * as data from '../data.js';
-import { banList } from './server';
+import { banList } from './server.js';
 
 let serverInRestart = false
 
