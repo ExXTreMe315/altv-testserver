@@ -20,7 +20,6 @@ const adminOptions = new NativeUI.UIMenuItem("Admin", "Administrative optionen")
 const vehicle = new NativeUI.UIMenuItem("Fahrzeug", "Fahrzeug verwalten");
 const weapons = new NativeUI.UIMenuItem("Waffen", "Waffen verwalten");
 const world = new NativeUI.UIMenuItem("Umwelt", "Umwelt verwalten");
-const test = new NativeUI.UIMenuItem("Test", "Test Menu");
 
 adminMenu.AddSubMenu(playerMenu, player)
 adminMenu.AddSubMenu(onlinePlayersMenu, onlinePlayers)
@@ -28,7 +27,6 @@ adminMenu.AddSubMenu(adminOptionsMenu, adminOptions)
 adminMenu.AddSubMenu(vehicleMenu, vehicle)
 adminMenu.AddSubMenu(weaponsMenu, weapons)
 adminMenu.AddSubMenu(worldMenu, world)
-adminMenu.AddSubMenu(testMenu, test)
 
 let onlinePlayerMenus = []
 
@@ -118,68 +116,6 @@ adminOptionsMenu.AddItem(setServerPw)
 adminOptionsMenu.AddItem(stopServer)
 adminOptionsMenu.AddItem(logPos)
 adminOptionsMenu.AddItem(logRot)
-
-//=> Test options
-let showChar = new NativeUI.UIMenuItem("Rope Menu", "Open Rope Menu");
-let clearLocalStorage = new NativeUI.UIMenuItem("Delete Charakter", "Delete Charakter (reconnect to create a new one)");
-let eup = new NativeUI.UIMenuItem("EUP Menu", "open EUP Menu");
-let clothMenu = new NativeUI.UIMenuItem("Cloth Menu", "open Cloth Menu");
-const eupMenu = new NativeUI.Menu("EUP", "equip eup cloths", new NativeUI.Point(25, 25), "commonmenu", "interaction_bgd");
-const cut = new NativeUI.UIMenuItem("--------------------------------");
-
-const logVehData = new NativeUI.UIMenuItem("logVehData");
-const engineLight = new NativeUI.UIMenuItem("Engine Light");
-const absLight = new NativeUI.UIMenuItem("ABS Light");
-const petrolLight = new NativeUI.UIMenuItem("Petrol Light");
-const oilLight = new NativeUI.UIMenuItem("Oil Light");
-const batteryLight = new NativeUI.UIMenuItem("Battery Light");
-
-
-testMenu.AddItem(showChar)
-testMenu.AddItem(clearLocalStorage)
-testMenu.AddSubMenu(eupMenu, eup)
-testMenu.AddItem(clothMenu)
-testMenu.AddItem(logVehData)
-testMenu.AddItem(cut)
-testMenu.AddItem(engineLight)
-testMenu.AddItem(absLight)
-testMenu.AddItem(petrolLight)
-testMenu.AddItem(oilLight)
-testMenu.AddItem(batteryLight)
-
-//=> EUP Menu
-
-let mask = new NativeUI.UIMenuListItem("Mask", "Set Mask", new NativeUI.ItemsCollection(createNumberArrayTill(255)));
-let legs = new NativeUI.UIMenuListItem("Legs", "Set Legs", new NativeUI.ItemsCollection(createNumberArrayTill(255)));
-let bags = new NativeUI.UIMenuListItem("Bags", "Set Bags", new NativeUI.ItemsCollection(createNumberArrayTill(255)));
-let shoes = new NativeUI.UIMenuListItem("Shoes", "Set Shoes", new NativeUI.ItemsCollection(createNumberArrayTill(255)));
-let accessories = new NativeUI.UIMenuListItem("Accessories", "Set Accessories", new NativeUI.ItemsCollection(createNumberArrayTill(255)));
-let undershirt = new NativeUI.UIMenuListItem("Undershirt", "Set Undershirt", new NativeUI.ItemsCollection(createNumberArrayTill(255)));
-let armor = new NativeUI.UIMenuListItem("Armor", "Set Armor", new NativeUI.ItemsCollection(createNumberArrayTill(255)));
-let decals = new NativeUI.UIMenuListItem("Decals", "Set Decals", new NativeUI.ItemsCollection(createNumberArrayTill(255)));
-let tops = new NativeUI.UIMenuListItem("Tops", "Set Tops", new NativeUI.ItemsCollection(createNumberArrayTill(255)));
-
-
-let hats = new NativeUI.UIMenuListItem("Hats", "Set Hats", new NativeUI.ItemsCollection(createNumberArrayTill(255)));
-let glasses = new NativeUI.UIMenuListItem("Glasses", "Set Glasses", new NativeUI.ItemsCollection(createNumberArrayTill(255)));
-let ears = new NativeUI.UIMenuListItem("Ears", "Set Ears", new NativeUI.ItemsCollection(createNumberArrayTill(255)));
-let watches = new NativeUI.UIMenuListItem("Watches", "Set Watches", new NativeUI.ItemsCollection(createNumberArrayTill(255)));
-let bracelets = new NativeUI.UIMenuListItem("Bracelets", "Set Bracelets", new NativeUI.ItemsCollection(createNumberArrayTill(255)));
-eupMenu.AddItem(mask)
-eupMenu.AddItem(legs)
-eupMenu.AddItem(bags)
-eupMenu.AddItem(shoes)
-eupMenu.AddItem(accessories)
-eupMenu.AddItem(undershirt)
-eupMenu.AddItem(armor)
-eupMenu.AddItem(decals)
-eupMenu.AddItem(tops)
-
-eupMenu.AddItem(hats)
-eupMenu.AddItem(glasses)
-eupMenu.AddItem(ears)
-eupMenu.AddItem(watches)
-eupMenu.AddItem(bracelets)
 
 //=> ItemSelect
 let playerStatus = {
@@ -334,125 +270,6 @@ adminOptionsMenu.ItemSelect.on(item => {
                 alt.log(alt.Player.local.rot)
                 alt.emitServer('logRot', alt.Player.local.rot)
             }
-            break;
-    }
-})
-
-testMenu.ItemSelect.on(item => {
-    switch(item) {
-        case showChar: 
-            alt.emit('openRopeMenu')
-            testMenu.Close()
-            break;
-        
-        case clearLocalStorage:
-            alt.emit('charCreator:clearLocalStorage')
-            break;
-
-        case clothMenu:
-            testMenu.Close()
-            alt.emit('openClothMenu')
-            alt.log(alt.hash('mp_m_eup'))
-            break;
-
-        case logVehData:
-            alt.log("Petrol Tank Health:", alt.Player.local.vehicle.petrolTankHealth)
-            alt.log("Engine Temperature:", alt.Player.local.vehicle.engineTemperature)
-            alt.log("Fuel Level:", alt.Player.local.vehicle.fuelLevel)
-            alt.log("Oil Level:", alt.Player.local.vehicle.oilLevel)
-            break;
-
-        case engineLight:
-            let engineLightStatus = alt.Player.local.vehicle.engineLight
-            alt.Player.local.vehicle.engineLight = !engineLightStatus
-            break;
-            
-        case absLight:
-            let absLightStatus = alt.Player.local.vehicle.absLight
-            alt.Player.local.vehicle.absLight = !absLightStatus
-            break;
-
-                        
-        case petrolLight:
-            let petrolLightStatus = alt.Player.local.vehicle.petrolLight
-            alt.Player.local.vehicle.petrolLight = !petrolLightStatus
-            break;
-
-                        
-        case oilLight:
-            let oilLightStatus = alt.Player.local.vehicle.oilLight
-            alt.Player.local.vehicle.oilLight = !oilLightStatus
-            break;
-
-                        
-        case batteryLight:
-            let batteryLightStatus = alt.Player.local.vehicle.batteryLight
-            alt.Player.local.vehicle.batteryLight = !batteryLightStatus
-            break;
-
-        case cut:
-            testMenu.Close();
-            charViewer.createPedInMenu();
-            break;
-    }
-})
-
-eupMenu.ListChange.on((item, index) => {
-    switch(item) {
-        case mask:
-            alt.emitServer('setDlcCloth', 1, item.Index-1, 0)
-            break;
-
-        case legs:
-            alt.emitServer('setDlcCloth', 4, item.Index-1, 0)
-            break;
-
-        case bags:
-            alt.emitServer('setDlcCloth', 5, item.Index-1, 0)
-            break;
-
-        case shoes:
-            alt.emitServer('setDlcCloth', 6, item.Index-1, 0)
-            break;
-
-        case accessories:
-            alt.emitServer('setDlcCloth', 7, item.Index-1, 0)
-            break;
-
-        case undershirt:
-            alt.emitServer('setDlcCloth', 8, item.Index-1, 0)
-            break;
-
-        case armor:
-            alt.emitServer('setDlcCloth', 9, item.Index-1, 0)
-            break;
-
-        case decals:
-            alt.emitServer('setDlcCloth', 10, item.Index-1, 0)
-            break;
-
-        case tops:
-            alt.emitServer('setDlcCloth', 11, item.Index-1, 0)
-            break;
-
-        case hats:
-            alt.emitServer('setDlcProp', 0, item.Index-1, 0)
-            break;
-
-        case glasses:
-            alt.emitServer('setDlcProp', 1, item.Index-1, 0)
-            break;
-
-        case ears:
-            alt.emitServer('setDlcProp', 2, item.Index-1, 0)
-            break;
-
-        case watches:
-            alt.emitServer('setDlcProp', 6, item.Index-1, 0)
-            break;
-
-        case bracelets:
-            alt.emitServer('setDlcProp', 7, item.Index-1, 0)
             break;
     }
 })

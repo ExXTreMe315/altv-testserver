@@ -8,7 +8,6 @@ import * as clothMenu from "./clothMenu.js";
 import * as noClip from "./noClip.js";
 import * as speedometer from "./speedometer.js";
 import * as charViewer from "./charViewer.js";
-import * as metaTest from "./metaTest.js";
 
 alt.setWeatherSyncActive(true);
 
